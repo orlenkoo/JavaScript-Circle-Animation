@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>animate circle</title>
+</head>
+<body onkeypress="animate_circle()">
+
+
+<style type="text/css">
+body {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+
+#cycler{position:relative; width:100%; height:100%;}
+#cycler img{position:absolute;z-index:1}
+#cycler img.active{z-index:3}
+
+#cycler div {
+  position:absolute;
+  width:100%;
+  height: 100%;
+  z-index:1;
+  background: url(https://i.ibb.co/kKbYDBz/Rectangle-2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+
+#cycler div:nth-of-type(2) {
+  background-image: url('https://i.ibb.co/YksnXkw/smile.png');
+}
+
+
+
+#cycler div.active {
+  z-index:2;
+}
+
+.logo {
+  height: 1vh;
+  display: block;
+  min-height: 80px;
+    z-index: 5;
+    position: absolute;
+    top: 2vh;
+    left: 1vw;
+}
+
+.logo img {
+  height: 100%;
+}
+.log img {
+  width: 100%;
+}
+
+.gradient {
+  position: absolute;
+  z-index:4;
+  top: 0;
+  left: 0;
+  background: url('https://i.ibb.co/Hg5xkwn/gradient.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+.circle {
+  position: absolute;
+  z-index:6;
+  border-radius: 50%;
+  transition: background 0.3s ease-out;
+  background-size: cover;
+  background-position: center;
+  
+}
+
+.circle .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://i.ibb.co/bz9hB1Y/radial-circle.png') no-repeat center;
+  background-size: cover;
+  border-radius: 50%;
+  opacity: 1;
+  transition: opacity 0.8s ease-out;
+}
+
+.circle:nth-child(1) {
+  background-image: url('https://i.ibb.co/yQhNc2S/middle-circles.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 5%;
+  left: 25%;
+  width: 50vw;
+  height: 90vh;
+  opacity: 1;
+  /*-webkit-animation: float1 20s infinite linear;
+          animation: float1 20s infinite linear;*/
+  /*animation: rotation 50s infinite linear;*/
+}
+
+.text {
+  top: 27%;
+  /*top: calc(50% - 100vw * 17 / 128);*/
+  left: 25%;
+  width: 50vw;
+  height: 46vh;
+  position: absolute;
+  text-align: center;
+  z-index: 6;
+}
+
+.text img {
+  height: 100%;
+  width: auto;
+  /*width: 100%;*/
+}
+
+.circle:nth-child(1):hover {
+  
+}
+
+.circle:hover span {
+  opacity: 0;
+}
+
+.circle.active span {
+  animation-duration: 1.5s;
+  animation-name: pulse;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.circle:nth-child(3) {
+  background: url('https://i.ibb.co/8cjFyTF/Rectangle-3.png') no-repeat center;
+  background-size: cover;
+  border: 1px solid #fff496;
+  top: 45%;
+  left: -5%;
+  width: 43vh;
+  height: 43vh;
+}
+.circle:nth-child(4) {
+  background: url('https://i.ibb.co/3CmVm1x/Rectangle-4.png') no-repeat center;
+  background-size: cover;
+  border: 1px solid #fff496;
+  top: 55%;
+  left: 75%;
+  width: 38vh;
+  height: 38vh;
+}
+.circle:nth-child(5) {
+  background: url('https://i.ibb.co/KVXrtPc/Rectangle-20.png') no-repeat center;
+  background-size: cover;
+  border: 1px solid #fff496;
+  top: 25%;
+  left: 75%;
+  width: 26vh;
+  height: 26vh;
+}
+.circle:nth-child(6) {
+  background: url('https://i.ibb.co/KwH81Lm/Rectangle-19.png') no-repeat center;
+  background-size: cover;
+  border: 1px solid #fff496;
+  top: 83%;
+  left: 20%;
+  width: 26vh;
+  height: 26vh;
+}
+
+@keyframes float1 {
+  40% {
+    -webkit-transform: translateX(1vh) translateY(3vh);
+            transform: translateX(1vh) translateY(3vh);
+  }
+  80% {
+    -webkit-transform: translateX(5vh) translateY(2vh);
+            transform: translateX(5vh) translateY(2vh);
+  }
+}
+
+@keyframes float2 {
+  40% {
+    -webkit-transform: translateX(3vw) translateY(-7vh);
+            transform: translateX(3vw) translateY(-7vh);
+  }
+  80% {
+    -webkit-transform: translateX(6vw) translateY(9vh);
+            transform: translateX(6vw) translateY(9vh);
+  }
+}
+
+@keyframes float3 {
+  40% {
+    -webkit-transform: translateX(1.5vh) translateY(-8vh);
+            transform: translateX(1.5vh) translateY(-8vh);
+  }
+  80% {
+    -webkit-transform: translateX(1.3vh) translateY(6vh);
+            transform: translateX(1.3vh) translateY(6vh);
+  }
+}
+
+@keyframes float4 {
+  40% {
+    -webkit-transform: translateX(0.8vh) translateY(-9vh);
+            transform: translateX(0.8vh) translateY(-9vh);
+  }
+  80% {
+    -webkit-transform: translateX(1vh) translateY(0.5vh);
+            transform: translateX(1vh) translateY(0.5vh);
+  }
+}
+
+@keyframes float5 {
+  40% {
+    -webkit-transform: translateX(2.2vh) translateY(-8vh);
+            transform: translateX(2.2vh) translateY(-8vh);
+  }
+  80% {
+    -webkit-transform: translateX(0.25vh) translateY(0.125vh);
+            transform: translateX(0.25vh) translateY(0.125vh);
+  }
+}
+
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-359deg);
+  }
+}
+
+
+</style>
+
+
+
+<div id="cycler">
+  <div class="active"></div>
+  <div class=""></div>
+  <div class=""></div>
+</div>
+
+
+<a class="logo" href=""><img src="https://i.ibb.co/ZNPPCWY/logo.png" alt="logo" border="0"></a>
+  <div class="gradient"></div>
+  <div class="circles">
+    <div class="circle" size='50'></div>
+    <div class="text"><img src="https://i.ibb.co/CtxQ2Yb/text.png" alt="text" border="0"></div>
+    <div class="circle" size='43' left='0', top='45'><span class="overlay"></span></div>
+    <div class="circle" size='38' left='75', top='55'><span class="overlay"></span></div>
+    <div class="circle" size='26' left='75', top='25'><span class="overlay"></span></div>
+    <div class="circle" size='26' left='20', top='73'><span class="overlay"></span></div>
+  </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+function cycleImages(){
+      var $active = $('#cycler .active');
+      var $next = ($active.next().length > 0) ? $active.next() : $('#cycler div:first');
+      $next.css('z-index',2);//move the next image up the pile
+      $active.fadeOut(1500,function(){//fade out the top image
+    $active.css('z-index',1).show().removeClass('active');//reset the z-index and unhide the image
+          $next.css('z-index',3).addClass('active');//make the next image the top one
+      });
+    }
+
+$(document).ready(function(){
+  // run every 7s
+  setInterval('cycleImages()', 5000);
+
+})
+
+var circles = document.getElementsByClassName('circle');
+var w = window.innerWidth;
+var h = window.innerHeight;
+var c_w = w*0.5;
+if (c_w > h*0.9) c_w = h*0.9;
+c_w = c_w*0.5;
+
+console.log(circles, w, h)
+
+
+function draw_circle() {
+  for (var i = 1; i < circles.length; i++) {
+    var style = "left:"+circles[i].getAttribute('left')+"px; top:"+circles[i].getAttribute('top')+"px; width:"+circles[i].getAttribute('size')+"px;height:"+circles[i].getAttribute('size')+"px;";
+    circles[i].setAttribute('style', style);
+  }
+}
+
+
+function initialize_circles() {
+
+  for (var i = 1; i < circles.length; i++) {
+    circles[i].setAttribute('deg', Math.random()*360);
+    circles[i].setAttribute('speed', 0.5+Math.random());
+    // size 200 ~ 320 px
+    size = h/4 + Math.random()*h/8;
+    if (w*0.5 < h*0.9)
+      size = w/7 + Math.random()*w/12;
+    circles[i].setAttribute('size', size);
+    // position
+    var rand_x, rand_y;
+    if (i == 1) {
+      rand_x = (w/2-size-c_w)*Math.random();
+      rand_y = (h/2-size)*Math.random()+80;
+    } else if (i == 2) {
+      rand_x = (w/2-size-c_w)*Math.random()+w/2+c_w;
+      rand_y = (h/2-size)*Math.random()+80;
+    } else if (i == 3) {
+      rand_x = (w/2-size-c_w)*Math.random();
+      rand_y = (h/2-size)*Math.random()+h/2;
+    } else if (i == 4) {
+      rand_x = (w/2-size-c_w)*Math.random()+w/2+c_w;
+      rand_y = (h/2-size)*Math.random()+h/2;
+    }
+    circles[i].setAttribute('left', rand_x);
+    circles[i].setAttribute('top', rand_y);
+  }
+  draw_circle();
+}
+
+function animate_circle() {
+  for (var i = 1; i < circles.length; i++) {
+    var left = Number(circles[i].getAttribute('left'));
+    var top = Number(circles[i].getAttribute('top'));
+    var size = Number(circles[i].getAttribute('size'));
+    var deg = Number(circles[i].getAttribute('deg'));
+    var speed = Number(circles[i].getAttribute('speed'));
+    
+    left1 = left + Math.cos(deg*Math.PI/180)*speed;
+    top1 = top + Math.sin(deg*Math.PI/180)*speed;
+
+    var x = left1 + size/2;
+    var y = top1 + size/2;
+    var deg1;
+
+    // collide with each other
+    for ( var j = i+1; j < circles.length; j++) {
+      var dx = Number(circles[j].getAttribute('left'))+Number(circles[j].getAttribute('size'))/2 - x;
+      var dy = Number(circles[j].getAttribute('top'))+Number(circles[j].getAttribute('size'))/2 - y;
+      var distance = Math.sqrt(dx*dx+dy*dy);
+      var minDist = size/2 + Number(circles[j].getAttribute('size'))/2;
+      if (distance < minDist) {
+        deg1 = Math.atan2(dy, dx)/Math.PI*180;
+        if (deg1 < 0) deg1 = 360 + deg1;
+        deg_changed = (deg1*2-deg+180)%360;
+        left = left - Math.cos(deg1*Math.PI/180)*speed;
+        top = top - Math.sin(deg1*Math.PI/180)*speed;
+        circles[i].setAttribute('left', left);
+        circles[i].setAttribute('top', top);
+        console.log('collide', i , j, dx, dy, deg1, deg_changed);
+        circles[i].setAttribute('deg', deg_changed);
+        deg1 = (deg1+180)%360;
+        deg_changed = (deg1*2-Number(circles[j].getAttribute('deg'))+180)%360;
+        circles[j].setAttribute('deg', deg_changed);
+      }
+
+    }
+
+    // if it collide with center circle.
+    dx = w/2 - x;
+    dy = h/2 - y;
+    distance = Math.sqrt(dx*dx+dy*dy);
+    minDist = size/2+c_w;
+    if (distance < minDist) {
+      deg1 = Math.atan2(dy, dx)/Math.PI*180;
+      if (deg1 < 0) deg1 = 360 + deg1;
+      // console.log('center', i, deg1)
+      deg = (deg1*2-deg+180)%360;
+      circles[i].setAttribute('deg', deg);
+      circles[i].setAttribute('class', 'circle');
+      circles[i].setAttribute('class', 'circle active');
+      var elm = circles[i];
+      var newone = elm.cloneNode(true);
+      elm.parentNode.replaceChild(newone, elm);
+    }
+
+    //collid with wall
+    if (x < size/2) {
+      deg1 = 180;
+      deg = (deg1*2-deg+180)%360;
+      circles[i].setAttribute('deg', deg);
+    } else if (x > (w-size/2)) {
+      deg1 = 0;
+      deg = (deg1*2-deg+180)%360;
+      circles[i].setAttribute('deg', deg);
+    }
+    if (y < size/2) {
+      deg1 = 270;
+      deg = (deg1*2-deg+180)%360;
+      circles[i].setAttribute('deg', deg);
+    } else if (y > (h-size/2)) {
+      deg1 = 90;
+      deg = (deg1*2-deg+180)%360;
+      circles[i].setAttribute('deg', deg);
+    }
+    if (y < (size/2+80) && x < w/2) {
+      deg1 = 270;
+      deg = (deg1*2-deg+180)%360;
+      circles[i].setAttribute('deg', deg);
+    }
+
+    left = left + Math.cos(deg*Math.PI/180)*speed;
+    top = top + Math.sin(deg*Math.PI/180)*speed;
+
+    circles[i].setAttribute('left', left);
+    circles[i].setAttribute('top', top);
+  }
+
+  draw_circle();
+}
+
+function initialize_circles_static() {
+
+  for (var i = 1; i < circles.length; i++) {
+    // circles[i].setAttribute('deg', Math.random()*360);
+    circles[i].setAttribute('speed', 0.5+Math.random());
+    // size 200 ~ 320 px
+    size = h/4 + Math.random()*h/8;
+    if (w*0.5 < h*0.9)
+      size = w/7 + Math.random()*w/12;
+    circles[i].setAttribute('size', size);
+    // position
+    var rand_x, rand_y;
+    if (i == 1) {
+      rand_x = w / 2 - c_w - size - 20;
+      rand_y = 110;
+      circles[i].setAttribute('deg', 20);
+    } else if (i == 2) {
+      rand_x = w / 2 + c_w + 10;
+      rand_y = 80;
+      circles[i].setAttribute('deg', 168);
+    } else if (i == 3) {
+      rand_x = 50;
+      rand_y = h-size-20;
+      circles[i].setAttribute('deg', 349);
+    } else if (i == 4) {
+      rand_x = w-size-20;
+      rand_y = h-size-10;
+      circles[i].setAttribute('deg', 198);
+    }
+    circles[i].setAttribute('left', rand_x);
+    circles[i].setAttribute('top', rand_y);
+  }
+  draw_circle();
+}
+
+function animate_circle_static() {
+  for (var i = 1; i < circles.length; i++) {
+    var left = Number(circles[i].getAttribute('left'));
+    var top = Number(circles[i].getAttribute('top'));
+    var size = Number(circles[i].getAttribute('size'));
+    var deg = Number(circles[i].getAttribute('deg'));
+    var speed = Number(circles[i].getAttribute('speed'));
+    
+    left1 = left + Math.cos(deg*Math.PI/180)*speed;
+    top1 = top + Math.sin(deg*Math.PI/180)*speed;
+
+    var x = left1 + size/2;
+    var y = top1 + size/2;
+    var deg1;
+
+    // collide with each other
+    for ( var j = i+1; j < circles.length; j++) {
+      var dx = Number(circles[j].getAttribute('left'))+Number(circles[j].getAttribute('size'))/2 - x;
+      var dy = Number(circles[j].getAttribute('top'))+Number(circles[j].getAttribute('size'))/2 - y;
+      var distance = Math.sqrt(dx*dx+dy*dy);
+      var minDist = size/2 + Number(circles[j].getAttribute('size'))/2;
+      if (distance < minDist) {
+        deg1 = Math.atan2(dy, dx)/Math.PI*180;
+        if (deg1 < 0) deg1 = 360 + deg1;
+        deg_changed = (deg1*2-deg+180)%360;
+        left = left - Math.cos(deg1*Math.PI/180)*speed;
+        top = top - Math.sin(deg1*Math.PI/180)*speed;
+        circles[i].setAttribute('left', left);
+        circles[i].setAttribute('top', top);
+        console.log('collide', i , j, dx, dy, deg1, deg_changed);
+        circles[i].setAttribute('deg', deg_changed);
+        deg1 = (deg1+180)%360;
+        deg_changed = (deg1*2-Number(circles[j].getAttribute('deg'))+180)%360;
+        circles[j].setAttribute('deg', deg_changed);
+      }
+    }
+
+    // if it collide with center circle.
+    dx = w/2 - x;
+    dy = h/2 - y;
+    distance = Math.sqrt(dx*dx+dy*dy);
+    minDist = size/2+c_w;
+    if (distance < minDist) {
+      deg1 = Math.atan2(dy, dx)/Math.PI*180;
+      if (deg1 < 0) deg1 = 360 + deg1;
+      // console.log('center', i, deg1)
+      deg = (deg1*2-deg+180)%360;
+      circles[i].setAttribute('deg', deg);
+      circles[i].setAttribute('class', 'circle');
+      circles[i].setAttribute('class', 'circle active');
+      var elm = circles[i];
+      var newone = elm.cloneNode(true);
+      elm.parentNode.replaceChild(newone, elm);
+    }
+
+    //collid with wall
+    if (x < size/2) {
+      deg = (deg+180)%360;
+      circles[i].setAttribute('deg', deg);
+    } else if (x > (w-size/2)) {
+      deg = (deg+180)%360;
+      circles[i].setAttribute('deg', deg);
+    }
+    if (y < size/2) {
+      deg = (deg+180)%360;
+      circles[i].setAttribute('deg', deg);
+    } else if (y > (h-size/2)) {
+      deg = (deg+180)%360;
+      circles[i].setAttribute('deg', deg);
+    }
+    if (y < (size/2+80) && x < w/2) {
+      deg = (deg+180)%360;
+      circles[i].setAttribute('deg', deg);
+    }
+
+    left = left + Math.cos(deg*Math.PI/180)*speed;
+    top = top + Math.sin(deg*Math.PI/180)*speed;
+
+    circles[i].setAttribute('left', left);
+    circles[i].setAttribute('top', top);
+  }
+
+  draw_circle();
+}
+
+initialize_circles_static();
+setInterval(animate_circle_static, 20);
+
+</script>
+
+
+</body>
+</html>
